@@ -64,7 +64,11 @@ func (l *LogHandler) AddLog(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"status": "лог сохранён"})
+	c.JSON(http.StatusOK, gin.H{
+		"name": "Тестовая интеграция",
+		"time": time.Now().Format(time.Now().UTC().Format(time.RFC3339)),
+		"version": "12312",
+	})
 }
 
 func (l *LogHandler) RemoveLogs(c *gin.Context) {
