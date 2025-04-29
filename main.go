@@ -12,7 +12,8 @@ func main() {
 
 	t := &LogHandler{}
 
-	r.POST("/shop/:shopID", t.AddLog)
+	r.POST("/shop/:shopID/notification", t.AddLog)
+	r.POST("/shop/slow/:shopID/notification", t.SlowLogs)
 	r.POST("/shop/:shopID/externalError", t.GetExternalError)
 	r.GET("/shop/:shopID/logs", t.GetLogs)
 	r.DELETE("/shop/:shopID", t.RemoveLogs)

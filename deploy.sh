@@ -1,0 +1,8 @@
+#!/bin/bash
+
+LOCAL_DIR=""
+REMOTE_USER=""
+REMOTE_HOST=""
+REMOTE_DIR=""
+
+scp -r "$LOCAL_DIR"/* "$REMOTE_USER@$REMOTE_HOST:$REMOTE_DIR"

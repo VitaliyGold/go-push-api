@@ -148,3 +148,12 @@ func (l *LogHandler) GetLogs(c *gin.Context) {
 func (l *LogHandler) GetExternalError(c *gin.Context) {
 	c.JSON(http.StatusInternalServerError, gin.H{"status": "500", "message": "Внутренняя ошибка сервера"})
 }
+
+func (l *LogHandler) SlowLogs(c *gin.Context) {
+	time.Sleep(11 * time.Second)
+		
+	c.JSON(http.StatusOK, gin.H{
+		"message": "Этот ответ занял более 10 секунд",
+		"time":    time.Now().String(),
+	})
+}
