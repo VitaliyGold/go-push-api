@@ -66,7 +66,7 @@ func (l *LogHandler) AddLog(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{
 		"name": "Тестовая интеграция",
-		"time": time.Now().Format(time.Now().UTC().Format(time.RFC3339)),
+		"time": time.Now().UTC().Format(time.RFC3339),
 		"version": "12312",
 	})
 }
@@ -154,10 +154,12 @@ func (l *LogHandler) GetExternalError(c *gin.Context) {
 }
 
 func (l *LogHandler) SlowLogs(c *gin.Context) {
-	time.Sleep(11 * time.Second)
+	time.Sleep(12 * time.Second)
 		
 	c.JSON(http.StatusOK, gin.H{
-		"message": "Этот ответ занял более 10 секунд",
-		"time":    time.Now().String(),
+		"name": "Тестовая интеграция",
+		"time": time.Now().UTC().Format(time.RFC3339),
+		"version": "12312",
+		"text": "Этот ответ занял 12 секунд",
 	})
 }
